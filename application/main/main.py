@@ -1,6 +1,6 @@
 import time
 from .mqtt_connection.mqttClientConnection import MqttClientConnection
-from aplication.configs.mqttBrokerConfigs import mqtt_broker_configs
+from application.configs.mqttBrokerConfigs import mqtt_broker_configs
 
 def start():
     mqtt_client_connection = MqttClientConnection(
