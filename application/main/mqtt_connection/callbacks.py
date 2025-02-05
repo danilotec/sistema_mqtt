@@ -14,5 +14,7 @@ def on_subscribe(client, userdata, mid, granted_qos, properties):
 
 def on_message(client, userdata, message):
     print('\nMensagem recebida!')
-    message_dict = (f'{message.topic}: {message.payload}')
-    messages_client(message_dict)
+    
+    message_dict = (f'message: {message.payload}\
+                    Time:{message.timestamp}')
+    messages_client(message_dict, message.topic)
