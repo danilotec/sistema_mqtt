@@ -7,11 +7,8 @@ class MessagesTopicsData:
         self.message = message
 
     def add_message_db(self):
+        print('\nMensagem recebida!')
         print(self.topic)
         print(self.message)
 
 
-def messages_client(message, topic):
-    # print(topic)
-    a = MessagesTopicsData(topic, message)
-    a.add_message_db()

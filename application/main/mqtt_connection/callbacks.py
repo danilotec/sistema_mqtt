@@ -1,5 +1,6 @@
 from application.configs.mqttBrokerConfigs import mqtt_broker_configs
-from application.main.messages.clientMessages import messages_client
+from application.main.messages.clientMessages import MessagesTopicsData
+from datetime import datetime
 
 def on_connect(client, userdata, flags, rc, properties):
     if rc == 0:
@@ -13,8 +14,10 @@ def on_subscribe(client, userdata, mid, granted_qos, properties):
     print(f'QOS: {granted_qos}')
 
 def on_message(client, userdata, message):
-    print('\nMensagem recebida!')
+    time_message = datetime.now()
     
     message_dict = (f'message: {message.payload}\
-                    Time:{message.timestamp}')
-    messages_client(message_dict, message.topic)
+                    Time:{time_message}')
+    a = MessagesTopicsData(message.topic, message_dict)
+    a.add_message_db()
+
