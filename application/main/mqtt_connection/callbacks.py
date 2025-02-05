@@ -1,5 +1,6 @@
 from application.configs.mqttBrokerConfigs import mqtt_broker_configs
 from application.main.messages.clientMessages import MessagesTopicsData
+from application.database.base import SessionLocal
 from datetime import datetime
 
 def on_connect(client, userdata, flags, rc, properties):
@@ -14,10 +15,11 @@ def on_subscribe(client, userdata, mid, granted_qos, properties):
     print(f'QOS: {granted_qos}')
 
 def on_message(client, userdata, message):
+    db = SessionLocal()
     time_message = datetime.now()
-    
-    message_dict = (f'message: {message.payload}\
+    message_payload = message.payload.decode()
+    message_dict = (f'message: {message_payload}\
                     Time:{time_message}')
-    a = MessagesTopicsData(message.topic, message_dict)
-    a.add_message_db()
+    a = MessagesTopicsData(message.topic, message_payload)
+    a.add_message_db(db)
 

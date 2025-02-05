@@ -3,7 +3,7 @@ venv/
 .env/
 
 database/
-.db
+*.db
 # Arquivos de configuração e segurança
 *.env
 *.DS_Store
