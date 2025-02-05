@@ -2,7 +2,7 @@
 venv/
 .env/
 
-database/
+
 *.db
 # Arquivos de configuração e segurança
 *.env

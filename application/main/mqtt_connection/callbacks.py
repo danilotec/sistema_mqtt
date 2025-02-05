@@ -11,7 +11,7 @@ def on_connect(client, userdata, flags, rc, properties):
         print(f'Erro ao conectar! codigo={rc}')
 
 def on_subscribe(client, userdata, mid, granted_qos, properties):
-    print(f'Client Subscribed at {mqtt_broker_configs['TOPICS']}')
+    print(f'Client Subscribed at {mqtt_broker_configs["TOPICS"]}')
     print(f'QOS: {granted_qos}')
 
 def on_message(client, userdata, message):
