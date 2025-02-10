@@ -19,8 +19,8 @@ def on_message(client, userdata, message):
     db = SessionLocal()
     message_payload = message.payload.decode()
 
-    a = MessagesTopicsData(message.topic, message_payload)
-    a.add_message_db(db)
+    message_database = MessagesTopicsData(message.topic, message_payload)
+    message_database.add_message_db(db)
 
     monitor = IoTMonitoring()
     monitor.register_message(message.topic)
