@@ -11,7 +11,7 @@ Este projeto é um sistema MQTT desenvolvido utilizando Flask, Paho-MQTT e SQLAl
 ## Instalação
 1. Clone o repositório:
     ```bash
-    git clone [text](https://github.com/danilotec/sistema_mqtt.git)
+    git clone https://github.com/danilotec/sistema_mqtt.git
     cd sistema_mqtt
     ```
 
