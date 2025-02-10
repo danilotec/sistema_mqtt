@@ -11,7 +11,7 @@ Este projeto é um sistema MQTT desenvolvido utilizando Flask, Paho-MQTT e SQLAl
 ## Instalação
 1. Clone o repositório:
     ```bash
-    git clone <URL_DO_REPOSITORIO>
+    git clone [<URL_DO_REPOSITORIO>](https://github.com/danilotec/sistema_mqtt.git)
     cd sistema_mqtt
     ```
 
@@ -29,17 +29,13 @@ Este projeto é um sistema MQTT desenvolvido utilizando Flask, Paho-MQTT e SQLAl
 ## Configuração
 1. Configure as variáveis de ambiente necessárias no arquivo `.env`:
     ```plaintext
-    FLASK_APP=app.py
-    FLASK_ENV=development
-    MQTT_BROKER_URL=<URL_DO_BROKER_MQTT>
-    MQTT_BROKER_PORT=<PORTA_DO_BROKER_MQTT>
-    DATABASE_URL=<URL_DO_BANCO_DE_DADOS>
+    exemplo no .env-example
     ```
 
 ## Uso
 1. Inicie o servidor Flask:
     ```bash
-    flask run
+    python run.py
     ```
 
 2. O sistema estará disponível em `http://127.0.0.1:5000/`.
