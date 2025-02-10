@@ -1,15 +1,14 @@
 import time
 from .mqtt_connection.mqttClientConnection import MqttClientConnection
-from application.configs.mqttBrokerConfigs import mqtt_broker_configs
+from application.configs.configs import Config
 
 def start():
     mqtt_client_connection = MqttClientConnection(
-        mqtt_broker_configs['HOST'],
-        mqtt_broker_configs['PORT'],
-        mqtt_broker_configs['CLIENT_NAME'],
-        mqtt_broker_configs['USERNAME'],
-        mqtt_broker_configs['PASSWORD'],
-        mqtt_broker_configs['KEEPALIVE'],
+        Config().host,
+        Config().port,
+        Config().clientname,
+        Config().username,
+        Config().password,
     )
     mqtt_client_connection.start_connection()
 

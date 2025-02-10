@@ -18,7 +18,7 @@ class MessagesTopicsData:
             topic=self.topic,
             payload=self.message,
             create_in=datetime.now()
-        )
+        ) #type: ignore
         db.add(self.devicedata)
         db.commit()
         db.refresh(self.devicedata)

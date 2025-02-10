@@ -1,11 +1,18 @@
 from flask import Flask, jsonify
 from application.main.messages.clientMessages import MessagesTopicsData
 from application.database.base import SessionLocal
+from application.api.admin import require_api_key
 
 app = Flask(__name__)
 
+@app.route('/')
+@require_api_key
+def index():
+    return jsonify({'Access successful': 'Wellcome!'})
+
 @app.route("/data", methods=['GET'])
-def hello_world():
+@require_api_key
+def monitor_data():
     db = SessionLocal()
     message_database = MessagesTopicsData('.', '.')
     data = message_database.get_messages_db(db)
