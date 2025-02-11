@@ -33,3 +33,8 @@ class MessagesTopicsData:
             for msg in messages
         ]
         return jsonify(messages_list)
+
+    def delete_all_messages(self, db: Session):
+        db.query(DeviceData).delete()
+        db.commit()
+        return jsonify({'message': 'All messages deleted'})

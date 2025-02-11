@@ -19,5 +19,13 @@ def monitor_data():
     print(data)
     return data
 
+@app.route("/delete", methods=['DELETE'])
+@require_api_key
+def delete_data():
+    db = SessionLocal()
+    message_database = MessagesTopicsData('.', '.')
+    data = message_database.delete_all_messages(db)
+    return data
+
 def run_flask():
     app.run(debug=True, use_reloader=False)
