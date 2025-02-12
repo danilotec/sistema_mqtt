@@ -3,6 +3,7 @@ from application.models.messageSchema import DeviceData
 from datetime import datetime
 from sqlalchemy.orm import Session
 from flask import jsonify
+
 @cache
 class MessagesTopicsData:
     def __init__(self, topic, message) -> None:
@@ -14,10 +15,10 @@ class MessagesTopicsData:
         print('Menssagem recebida!')
         print(self.topic)
         print(self.message)
-        self.devicedata = DeviceData(
+        self.devicedata = DeviceData.upsert_device(
+            session=db,
             topic=self.topic,
             payload=self.message,
-            create_in=datetime.now()
         ) #type: ignore
         db.add(self.devicedata)
         db.commit()
